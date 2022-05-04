@@ -1,27 +1,25 @@
-import { getWeatherData } from './weather.js';
+import getWeatherData from "./weather.js";
 
 
 export function searchCity() {
 
-    let jsonData;
-    let choosenCity = document.getElementById("city").value
+    let choosenCity = document.getElementById("city").value;
     const geoUrl = "http://api.openweathermap.org/geo/1.0/direct?";
-    const appid = "4e026d1d0369716d521ce6646a92a040"
+    const appid = "4e026d1d0369716d521ce6646a92a040";
     const dataParams = {
 
         "q":choosenCity,
         "appid":appid
 
     }
-
-
+    let jsonData;
     fetch(geoUrl + new URLSearchParams(dataParams))
+
         .then(response => response.json())
         .then(data => jsonData = data)
-        .then(() => console.log(jsonData));
-
-
-
-    //.then(() => document.getElementById("temperature").innerHTML = (jsonData['main']['temp'] + ' C°'))
-    //console.log(choosenCity)
+        .then(() => getWeatherData(jsonData[0]['lat'], jsonData[0]['lon']));
+        //.then(data =>console.log(data[0]['lat'], data[0]['lon']))
+        //getWeatherData(lat, lon);
+        //.then(data => getWeatherData(data[0]['lat'], data[0]['lon']));
+        location.href = "weather.html"
 }
