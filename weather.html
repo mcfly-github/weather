@@ -6,9 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
 </head>
-<body onload="">
+<body>
+
+    <script  type="module">
+        import { searchCity } from './search.js';
+        document.getElementById("search").addEventListener("click", searchCity);
+    </script>
+    <script type="module" src="weather.js"></script>
+    <label for="city">City:</label><br><br>
+    <input type="text" id="city" name="city"><br><br><br>
+    <button id="search">Search</button>
     <p>Temperature:</p>
     <p id="temperature"></p>
+    <p>Clouds:</p>
+    <p id="clouds"></p>
+    <p>Wind:</p>
+    <p id="wind-speed"></p>
+
 </body>
-<script type="module" src="weather.js"></script>
 </html>
