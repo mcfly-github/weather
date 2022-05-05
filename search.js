@@ -10,16 +10,11 @@ export function searchCity() {
 
         "q":choosenCity,
         "appid":appid
-
     }
-    let jsonData;
+  
     fetch(geoUrl + new URLSearchParams(dataParams))
-
         .then(response => response.json())
-        .then(data => jsonData = data)
-        .then(() => getWeatherData(jsonData[0]['lat'], jsonData[0]['lon']));
-        //.then(data =>console.log(data[0]['lat'], data[0]['lon']))
-        //getWeatherData(lat, lon);
-        //.then(data => getWeatherData(data[0]['lat'], data[0]['lon']));
-        location.href = "weather.html"
+        .then(data => {
+        getWeatherData(data[0]['lat'], data[0]['lon']);
+        })
 }
