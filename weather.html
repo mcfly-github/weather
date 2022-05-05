@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="weather.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,15 +14,26 @@
         document.getElementById("search").addEventListener("click", searchCity);
     </script>
     <script type="module" src="weather.js"></script>
-    <label for="city">City:</label><br><br>
-    <input type="text" id="city" name="city"><br><br><br>
-    <button id="search">Search</button>
-    <p>Temperature:</p>
-    <p id="temperature"></p>
-    <p>Clouds:</p>
-    <p id="clouds"></p>
-    <p>Wind:</p>
-    <p id="wind-speed"></p>
+    <script src="https://kit.fontawesome.com/e2b394a18c.js" crossorigin="anonymous"></script>
+    
+    
+    <div class="flexbox">
 
+        <div class="search">
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city">
+            <button id="search">Search</button>
+        </div>
+
+        <div class="results">
+            <i class="fa-solid fa-temperature-low"></i>
+            <p id="temperature"></p>
+            <i class="fa-solid fa-cloud"></i>
+            <p id="clouds"></p>
+            <i class="fa-solid fa-wind"></i>
+            <p id="wind-speed"></p>
+        </div>
+
+    </div>
 </body>
 </html>
