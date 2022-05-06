@@ -11,28 +11,45 @@
 
     <script  type="module">
         import { searchCity } from './search.js';
-        document.getElementById("search").addEventListener("click", searchCity);
+        document.getElementById("submit")
+        .addEventListener("click", searchCity);
+        document.getElementById("search")
+        .addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                document.getElementById("submit").click();
+            }
+        });
     </script>
     <script type="module" src="weather.js"></script>
     <script src="https://kit.fontawesome.com/e2b394a18c.js" crossorigin="anonymous"></script>
-    
-    
+
+
     <div class="flexbox">
 
         <div class="search">
-            <label for="city">City:</label>
-            <input type="text" id="city" name="city">
-            <button id="search">Search</button>
+            <input type="search" id="search" placeholder="Search...">
+            <button type="submit" id="submit"></button>
+
+    </div>
+
+    <div class="icons">
+
+        <div class="values" id="temperature">
+            <i class="fa-solid fa-temperature-low"></i>
+            <p id="temperature-value">0</p>
         </div>
 
-        <div class="results">
-            <i class="fa-solid fa-temperature-low"></i>
-            <p id="temperature"></p>
+        <div class="values" id="clouds">
             <i class="fa-solid fa-cloud"></i>
-            <p id="clouds"></p>
-            <i class="fa-solid fa-wind"></i>
-            <p id="wind-speed"></p>
+            <p id="clouds-value">-</p>
         </div>
+
+        <div class="values" id="wind-speed">
+            <i class="fa-solid fa-wind"></i>
+            <p id="wind-speed-value">0</p>
+        </div>
+
+    </div>
 
     </div>
 </body>
