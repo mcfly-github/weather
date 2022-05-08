@@ -13,11 +13,13 @@ export default function getWeatherData(lat, lon) {
     fetch(url + new URLSearchParams(dataParams))
         .then(response => response.json())
         .then(data => {
+        document.getElementById("city")
+        .innerHTML = ("The current weather in " + data["name"]);
         document.getElementById("temperature-value")
-        .innerHTML = (data["main"]["temp"] + " C°");
+        .innerHTML = (Math.round(data["main"]["temp"]) + " C°");
         document.getElementById("clouds-value")
-        .innerHTML = (data["weather"][0]["description"]);
+        .innerHTML = (data["weather"][0]["description"].charAt(0).toUpperCase() + data["weather"][0]["description"].slice(1));
         document.getElementById("wind-speed-value")
-        .innerHTML = (data["wind"]["speed"] * 3.6 + " km/h");
+        .innerHTML = (Math.round(data["wind"]["speed"]) * 3.6 + " km/h");
         })
 }

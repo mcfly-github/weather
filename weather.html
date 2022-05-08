@@ -8,7 +8,18 @@
     <title>Weather</title>
 </head>
 <body>
+    <div class="location">
+        <p id="city"></p>
+    </div>
+    
 
+    <script type="module">
+        import getLocation from "./defaultLocation.js"
+        window.addEventListener('load', (event) => {
+            getLocation()
+        });
+    </script>
+    
     <script  type="module">
         import { searchCity } from './search.js';
         document.getElementById("submit")
@@ -20,6 +31,7 @@
             }
         });
     </script>
+    <script type="module" src="defaultLocation.js"></script>
     <script type="module" src="weather.js"></script>
     <script src="https://kit.fontawesome.com/e2b394a18c.js" crossorigin="anonymous"></script>
 
